@@ -5,18 +5,17 @@ x = int(str(x) + '1')
 from collections import deque
 
 a, b = map(int, input().split())
-
-ans = -1
-q = deque()
-q.append((a, 1))
-
-while q:
-    x, cnt = q.popleft()
-    if x == b:
-        ans = cnt
+res = 1
+while True:
+    if b == a:
         break
-    for nx in (x * 2, int(str(x) + '1')):
-        if nx < 0 or nx > b:
-            continue
-        q.append((nx, cnt + 1))
-print(ans)
+    elif b < a or (b % 2 != 0 and b % 10 != 1):
+        res = -1
+        break
+    else:
+        res += 1
+        if b % 10 == 1:
+            b //= 10
+        else:
+            b //= 2
+print(res)
