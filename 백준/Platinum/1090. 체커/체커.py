@@ -1,13 +1,6 @@
-"""
-체커
-"""
-import sys
-input = sys.stdin.readline
-
 n = int(input())
 ls = [list(map(int, input().split())) for _ in range(n)]
-a = [int(sys.maxsize) for _ in range(n + 1)]
-
+a = [int(1e10) for _ in range(n + 1)]
 for i in range(n):
     for j in range(n):
         x, y = ls[i][0], ls[j][1]
