@@ -1,0 +1,28 @@
+def solution(info, edges):
+    def compare(v):
+        ls = []
+        for e in edges:
+            i, j = e
+            if v == i:
+                ls.append(j)
+        return ls
+    
+    def dfs(s, w, cur, path):
+        if info[cur]:
+            w += 1
+        else:
+            s += 1
+        
+        if s <= w:
+            return 0
+        mx_s = s
+        
+        for p in path:
+            for i in compare(p):
+                if i not in path:
+                    path.append(i)
+                    mx_s = max(mx_s, dfs(s, w, i, path))
+                    path.pop()
+        return mx_s
+        
+    return dfs(0, 0, 0, [0])
