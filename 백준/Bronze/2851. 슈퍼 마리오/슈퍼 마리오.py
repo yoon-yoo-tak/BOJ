@@ -1,15 +1,16 @@
-mus = [int(input()) for _ in range(10)]
-result = 0
-for i in range(len(mus)):
-    result += mus[i]
-    if result >= 100:
-        before = abs(result-mus[i]-100)
-        now = abs(result-100)
-        if now > before:
-            print(result - mus[i])
+score_list = []
+score = 0
+for _  in range(10):
+    score_list.append(int(input()))
+
+for i in range(10):
+    score += score_list[i]
+    if score > 100:
+        if abs(sum(score_list[:i])-100) < abs(sum(score_list[:i+1])-100):
+            print(sum(score_list[:i]))
             break
         else:
-            print(result)
+            print(sum(score_list[:i+1]))
             break
-    if i==len(mus)-1 and result<100:
-        print(result)
+    elif i == 9 and score < 100:
+        print(score)
