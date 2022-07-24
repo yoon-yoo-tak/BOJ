@@ -23,6 +23,6 @@ for i in a:
 for i in c:
     for j in d:
         temp = -(i + j)  
-        if temp in dd.keys(): #  0으로 만들 수 있는 경우가 존재한다.
+        if temp in dd.keys():
             ans += dd[temp]
 print(ans)
